@@ -5,6 +5,7 @@ import java.util.TreeMap;
 
 public class Card {
     private final String name;
+    public String description;
     private SortedMap<String, Integer> attributes; 
 
     public Card(String name){
@@ -19,14 +20,19 @@ public class Card {
     public int getValueOfAttribute(String attribute){
         return this.attributes.get(attribute);
     }
+    
+    public String getName(){
+        return this.name;
+    }
 
     public void addAttribute(String key, int value){
         this.attributes.put(key, value);
     }
 
-    public String getName(){
-        return this.name;
+    public void addDescription(String description){
+        this.description = description;
     }
+
 
     @Override
     public int hashCode() {

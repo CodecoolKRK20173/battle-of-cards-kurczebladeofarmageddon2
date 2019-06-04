@@ -1,4 +1,4 @@
-package com.pkd;
+package com.pkd.cards;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -33,7 +33,7 @@ public class Card {
         this.attributes.put(key, value);
     }
 
-    public void addDescription(String description){
+    public void setDescription(String description){
         this.description = description;
     }
 

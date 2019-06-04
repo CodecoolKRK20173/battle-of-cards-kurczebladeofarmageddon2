@@ -1,3 +1,5 @@
+package com.pkd.DAO;
+
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
@@ -7,10 +9,10 @@ public class ParseXml {
 
     public static void main(String[] args) {
 
-        LinkedList<Card> cardList = new LinkedList<>();
+//        LinkedList<Card> cardList = new LinkedList<>();
 
         try {
-            File inputFile = new File("Cards.xml");
+            File inputFile = new File("battleofmemes/src/main/java/com/pkd/resources/Cards.xml");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = factory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);

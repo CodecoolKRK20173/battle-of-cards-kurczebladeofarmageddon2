@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 public class Card {
     private final String name;
-    public String description;
+    private String description;
     private SortedMap<String, Integer> attributes; 
 
     public Card(String name){
@@ -23,6 +23,10 @@ public class Card {
     
     public String getName(){
         return this.name;
+    }
+    
+    public String getDescription(){
+        return this.description;
     }
 
     public void addAttribute(String key, int value){

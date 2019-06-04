@@ -39,6 +39,17 @@ public class Card {
 
 
     @Override
+    public String toString(){
+        String output = "";
+        output += "Meme: " + this.getName() + "\n";
+        output += "Story: " + this.getDescription() + "\n";
+        for (String key : this.attributes.keySet()
+             ) { output += key + ": " + this.attributes.get(key) + "\n";
+        }
+        return output;
+    }
+
+
     public int hashCode() {
         String result = "";
         for (String key : this.attributes.keySet()) {

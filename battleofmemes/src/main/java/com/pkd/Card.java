@@ -1,10 +1,13 @@
+package com.pkd;
+
 import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class Card {
     private SortedMap<String, Integer> attributes; 
 
     public Card(){
-        attributes = new SortedMap<>(); 
+        attributes = new TreeMap<>(); 
     }
 
     public SortedMap<String, Integer> getAllCardAttributesValues() {

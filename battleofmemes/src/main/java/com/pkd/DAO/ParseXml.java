@@ -22,7 +22,7 @@ public class ParseXml {
 
             NodeList factList = doc.getElementsByTagName("Card");
 
-//            System.out.println("----------------------------");
+            System.out.println("----------------------------" +factList.getLength() );
 
 
             for (int temp = 0; temp < factList.getLength(); temp++) {
@@ -78,7 +78,7 @@ public class ParseXml {
 //                                    System.out.print("Value "+ car.getAttribute("id")+" ="); //Value family/money/... =
 //                                    System.out.println(car.getTextContent()); //boolean
                                     card.addAttribute (car.getAttribute ("id"),Integer.parseInt (car.getTextContent ()));
-                                    cardList.add (card);
+
 
                                 }
                             }
@@ -88,8 +88,11 @@ public class ParseXml {
                     }
                 }
             }
-        }}
-            
+                    cardList.add (card);
+        }
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
          }

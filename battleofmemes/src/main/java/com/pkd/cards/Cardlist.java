@@ -33,4 +33,8 @@ public class Cardlist {
         }
         return decks;
     }
+
+    public Card getCartAT(int index){
+        return cardList.get (index);
+    }
 }

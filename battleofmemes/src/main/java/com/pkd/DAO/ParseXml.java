@@ -18,22 +18,22 @@ public class ParseXml {
             DocumentBuilder dBuilder = factory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
             doc.getDocumentElement().normalize();
-            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+//            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
             NodeList factList = doc.getElementsByTagName("Card");
 
-            System.out.println("----------------------------");
+//            System.out.println("----------------------------");
 
 
             for (int temp = 0; temp < factList.getLength(); temp++) {
                         Node factNode = factList.item(temp);
                         //System.out.println("\n<Fact>" + factNode.getNodeName()); // <Fact>
-                        System.out.println("\n"); 
+//                        System.out.println("\n");
 
                 if (factNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) factNode;
-                    System.out.println("<Card id=> " 
-                       + eElement.getAttribute("name"));
+//                    System.out.println("<Card id=> "
+//                       + eElement.getAttribute("name"));
 
 
                     Card card = new Card (eElement.getAttribute ("name"));
@@ -50,8 +50,10 @@ public class ParseXml {
                     if (descriptionNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element eeElement = (Element) descriptionNode;
                         //System.out.println("Fact Element: " + descriptionNode.getNodeName());
-                        System.out.println("<Description value=>" //<Description value=>
-                            + eeElement.getAttribute("value")); 
+//                        System.out.println("<Description value=>" //<Description value=>
+//                            + eeElement.getAttribute("value"));
+
+                        card.setDescription (eeElement.getAttribute ("value"));
                         NodeList evalsList = eElement.getElementsByTagName("Attributes");
 //                        Node evalsNode = evalsList.item(temp);
 
@@ -61,7 +63,7 @@ public class ParseXml {
 
                         if (evalsNode.getNodeType() == Node.ELEMENT_NODE) {
                             Element eeeElement = (Element) evalsNode;
-                            System.out.println("<"+ evalsNode.getNodeName()+">"); //<Evals>
+//                            System.out.println("<"+ evalsNode.getNodeName()+">"); //<Evals>
                             NodeList evalList = eeeElement.getElementsByTagName("Attribute");
 
 
@@ -71,10 +73,10 @@ public class ParseXml {
                                 
                                 if (node1.getNodeType() == node1.ELEMENT_NODE) {
                                     Element car = (Element) node1;
-                                    System.out.print("Attribute id =");
-                                    System.out.println(car.getAttribute("id")); // family/money/comfort
-                                    System.out.print("Value "+ car.getAttribute("id")+" ="); //Value family/money/... =
-                                    System.out.println(car.getTextContent()); //boolean
+//                                    System.out.print("Attribute id =");
+//                                    System.out.println(car.getAttribute("id")); // family/money/comfort
+//                                    System.out.print("Value "+ car.getAttribute("id")+" ="); //Value family/money/... =
+//                                    System.out.println(car.getTextContent()); //boolean
                                     card.addAttribute (car.getAttribute ("id"),Integer.parseInt (car.getTextContent ()));
                                     cardList.add (card);
 

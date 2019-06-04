@@ -1,5 +1,6 @@
 package com.pkd.DAO;
 
+import com.pkd.cards.Card;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
@@ -7,9 +8,9 @@ import java.util.LinkedList;
 
 public class ParseXml {
 
-    public static void main(String[] args) {
+    public static LinkedList<Card> parseXML() {
 
-//        LinkedList<Card> cardList = new LinkedList<>();
+        LinkedList<Card> cardList = new LinkedList<>();
 
         try {
             File inputFile = new File("battleofmemes/src/main/java/com/pkd/resources/Cards.xml");
@@ -18,8 +19,11 @@ public class ParseXml {
             Document doc = dBuilder.parse(inputFile);
             doc.getDocumentElement().normalize();
             System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+
             NodeList factList = doc.getElementsByTagName("Card");
+
             System.out.println("----------------------------");
+
 
             for (int temp = 0; temp < factList.getLength(); temp++) {
                         Node factNode = factList.item(temp);
@@ -30,6 +34,11 @@ public class ParseXml {
                     Element eElement = (Element) factNode;
                     System.out.println("<Card id=> " 
                        + eElement.getAttribute("name"));
+
+
+                    Card card = new Card (eElement.getAttribute ("name"));
+
+
                     NodeList descriptionList = eElement.getElementsByTagName("Description");
 
                    for (int tempp = 0; tempp < descriptionList.getLength(); tempp++) {
@@ -54,6 +63,8 @@ public class ParseXml {
                             Element eeeElement = (Element) evalsNode;
                             System.out.println("<"+ evalsNode.getNodeName()+">"); //<Evals>
                             NodeList evalList = eeeElement.getElementsByTagName("Attribute");
+
+
                             
                             for (int temps = 0; temps < evalList.getLength(); temps++) {
                             Node node1 = evalList.item(temps);
@@ -63,8 +74,9 @@ public class ParseXml {
                                     System.out.print("Attribute id =");
                                     System.out.println(car.getAttribute("id")); // family/money/comfort
                                     System.out.print("Value "+ car.getAttribute("id")+" ="); //Value family/money/... =
-                                    System.out.println(car.getTextContent()); //boolean result
-
+                                    System.out.println(car.getTextContent()); //boolean
+                                    card.addAttribute (car.getAttribute ("id"),Integer.parseInt (car.getTextContent ()));
+                                    cardList.add (card);
 
                                 }
                             }
@@ -85,6 +97,6 @@ public class ParseXml {
     
 
 
-
+    return cardList;
     }
 }

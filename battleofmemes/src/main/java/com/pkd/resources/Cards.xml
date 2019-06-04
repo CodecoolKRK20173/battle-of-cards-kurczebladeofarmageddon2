@@ -10,7 +10,7 @@
         </Attributes>
     </Card>
     ...
-    <Card id="nazwa_mema2">
+    <Card name="nazwa_mema2">
         <Description value="opis_mema2"/>
         <Attributes>
             <Attribute id="fun">6</Attribute>

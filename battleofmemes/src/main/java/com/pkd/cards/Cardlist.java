@@ -7,8 +7,9 @@ import java.util.LinkedList;
 public class Cardlist {
     private LinkedList<Card> cardList;
 
-    public Cardlist(){
-        this.cardList = new LinkedList<>();
+    public Cardlist(LinkedList<Card> cardList){
+
+        this.cardList = cardList;
     }
 
     public void addcard(Card card){

@@ -16,6 +16,16 @@ public class Cardlist {
         cardList.add(card);
     }
 
+    public String toString(){
+        String output = "";
+        int i = 1;
+        for (Card card: this.cardList
+             ) { output += i + ")\n" + card.toString() +"\n";
+             i++;
+        }
+        return output;
+    }
+
     public ArrayList<LinkedList<Card>> splitCardsOn(int numbersOfDecs){
         ArrayList<LinkedList<Card>> decks = new ArrayList<LinkedList<Card>>();
         int numberOfCards = cardList.size();

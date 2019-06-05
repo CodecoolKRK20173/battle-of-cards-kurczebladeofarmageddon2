@@ -19,4 +19,104 @@
             <Attribute id="shame">1</Attribute>
         </Attributes>
     </Card>
+    ...
+    <Card name="nazwa_mema3">
+        <Description value="opis_mema3"/>
+        <Attributes>
+            <Attribute id="fun">66</Attribute>
+            <Attribute id="fresh">44</Attribute>
+            <Attribute id="dry">55</Attribute>
+            <Attribute id="shame">65</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema4">
+        <Description value="opis_mema4"/>
+        <Attributes>
+            <Attribute id="fun">12</Attribute>
+            <Attribute id="fresh">89</Attribute>
+            <Attribute id="dry">25</Attribute>
+            <Attribute id="shame">42</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema5">
+        <Description value="opis_mem5"/>
+        <Attributes>
+            <Attribute id="fun">63</Attribute>
+            <Attribute id="fresh">77</Attribute>
+            <Attribute id="dry">41</Attribute>
+            <Attribute id="shame">89</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema6">
+        <Description value="opis_mema6"/>
+        <Attributes>
+            <Attribute id="fun">45</Attribute>
+            <Attribute id="fresh">65</Attribute>
+            <Attribute id="dry">21</Attribute>
+            <Attribute id="shame">65</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema7">
+        <Description value="opis_mema7"/>
+        <Attributes>
+            <Attribute id="fun">25</Attribute>
+            <Attribute id="fresh">98</Attribute>
+            <Attribute id="dry">32</Attribute>
+            <Attribute id="shame">88</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema8">
+        <Description value="opis_mema8"/>
+        <Attributes>
+            <Attribute id="fun">88</Attribute>
+            <Attribute id="fresh">66</Attribute>
+            <Attribute id="dry">87</Attribute>
+            <Attribute id="shame">11</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema9">
+        <Description value="opis_mema9"/>
+        <Attributes>
+            <Attribute id="fun">87</Attribute>
+            <Attribute id="fresh">33</Attribute>
+            <Attribute id="dry">45</Attribute>
+            <Attribute id="shame">54</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema10">
+        <Description value="opis_mema10"/>
+        <Attributes>
+            <Attribute id="fun">12</Attribute>
+            <Attribute id="fresh">38</Attribute>
+            <Attribute id="dry">65</Attribute>
+            <Attribute id="shame">44</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema11">
+        <Description value="opis_mema11"/>
+        <Attributes>
+            <Attribute id="fun">44</Attribute>
+            <Attribute id="fresh">88</Attribute>
+            <Attribute id="dry">55</Attribute>
+            <Attribute id="shame">22</Attribute>
+        </Attributes>
+    </Card>
+    ...
+    <Card name="nazwa_mema12">
+        <Description value="opis_mema12"/>
+        <Attributes>
+            <Attribute id="fun">22</Attribute>
+            <Attribute id="fresh">7</Attribute>
+            <Attribute id="dry">9</Attribute>
+            <Attribute id="shame">8</Attribute>
+        </Attributes>
+    </Card>
 </Cards>

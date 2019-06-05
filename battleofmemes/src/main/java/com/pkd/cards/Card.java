@@ -46,6 +46,7 @@ public class Card {
         for (String key : this.attributes.keySet()
              ) { output += key + ": " + this.attributes.get(key) + "\n";
         }
+//        output += String.valueOf(this.hashCode());
         return output;
     }
 
@@ -53,8 +54,8 @@ public class Card {
     public int hashCode() {
         String result = "";
         for (String key : this.attributes.keySet()) {
-            result += attributes.get(key) + "0000";
+            result += attributes.get(key) + "00";
         }
-        return Integer.parseInt(result);
-    }
-}
+        int hash = Integer.parseInt(result, 10);
+        return hash;
+}}

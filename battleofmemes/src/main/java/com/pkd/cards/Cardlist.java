@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class Cardlist {
-    private LinkedList<Card> cardList;
+    protected LinkedList<Card> cardList;
 
     public Cardlist(LinkedList<Card> cardList){
 
@@ -16,8 +16,12 @@ public class Cardlist {
         cardList.add(card);
     }
 
+    public int getSize(){
+        return this.cardList.size();
+    }
+
     public String toString(){
-        String output = "";
+        String output = "Number of cards: "+ String.valueOf(this.cardList.size()) +"\n";
         int i = 1;
         for (Card card: this.cardList
              ) { output += i + ")\n" + card.toString() +"\n";
@@ -44,7 +48,7 @@ public class Cardlist {
         return decks;
     }
 
-    public Card getCartAT(int index){
+    public Card getCardAt(int index){
         return cardList.get (index);
     }
 }

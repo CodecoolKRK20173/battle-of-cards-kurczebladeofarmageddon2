@@ -3,39 +3,34 @@ package com.pkd.cards;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class Deck {
-    private LinkedList<Card> deck;
+public class Deck extends Cardlist{
     
     public Deck(LinkedList<Card> deck){
-        this.deck = deck;
-    }
-
-    public int getSize(){
-        return deck.size();
+        super(deck);
     }
 
     public Card getTopCard(){
-        return deck.getFirst();
+        return this.cardList.getFirst();
     }
 
     public void removeTopCard(){
-        this.deck.removeFirst();
+        this.cardList.removeFirst();
     }
 
     public void addNewCard(Card card){
-        this.deck.add(card);
+        this.cardList.add(card);
     }
 
     public void moveTopCardToBottom(){
-        if (deck.size()>0)
-            deck.add(deck.remove(0));
+        if (cardList.size()>0)
+            cardList.add(cardList.remove(0));
     }
 
     public boolean isEmpty(){
-        return deck.isEmpty();
+        return this.cardList.isEmpty();
     }
 
     public void shuffle(){
-        Collections.shuffle(deck);
+        Collections.shuffle(this.cardList);
     }
 }

@@ -14,11 +14,11 @@ public class Game {
 
     public void startGame() {
         gameInitiacion();
-        System.out.println(players.get(0).showDeck());
-        System.out.println(players.get(1).showDeck());
+//        System.out.println(players.get(0).showDeck());
+//        System.out.println(players.get(1).showDeck());
         gameRounds(0);
-        System.out.println(players.get(0).showDeck());
-        System.out.println(players.get(1).showDeck());
+//        System.out.println(players.get(0).showDeck());
+//        System.out.println(players.get(1).showDeck());
 
     }
 
@@ -51,8 +51,12 @@ public class Game {
         System.out.println("Current player: "+ activePlayer.getName());
         System.out.println("Deck size: " + activePlayer.getDeckSize());
         System.out.println(topCard.toString());
-        String chosenAttribute = activePlayer.choseCardAttribute(topCard);
+        int chosenAttribute = activePlayer.choseCardAttribute(topCard);
+
+        System.out.println (activePlayer.getTopCardAttribute (chosenAttribute));
+
         show.printAllTopCard(players);
+
         int activeAttributeValue = activePlayer.getTopCardAttribute(chosenAttribute);
         int opponentAttributeValue = opponentPlayer.getTopCardAttribute(chosenAttribute);
 

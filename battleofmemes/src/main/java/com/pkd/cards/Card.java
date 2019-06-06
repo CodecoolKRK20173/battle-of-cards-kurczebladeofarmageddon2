@@ -88,8 +88,10 @@ public class Card {
         String output = "";
         output += "Meme: " + this.getName() + "\n";
         output += "Story: " + this.getDescription() + "\n";
+        int numb = 1;
         for (String key : this.attributes.keySet()
-             ) { output += key + ": " + this.attributes.get(key) + "\n";
+             ) { output +=numb + ":  "+ key + ": " + this.attributes.get(key) + "\n";
+             numb++;
         }
 //        output += String.valueOf(this.hashCode());
         return output;

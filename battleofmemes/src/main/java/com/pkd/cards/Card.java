@@ -42,7 +42,7 @@ public class Card {
     }
 
     public String getAttributesByNumberInString(int i){
-        return attributesArray.get(i);
+        return attributesKeyArray.get(i);
 
     }
     
@@ -69,6 +69,14 @@ public class Card {
         return attributes.size();
     }
 
+
+    public ArrayList<String> getAttributesKeyArray() {
+        return attributesKeyArray;
+    }
+
+    public ArrayList<Integer> getAttributesValueArray() {
+        return attributesValueArray;
+    }
 
     @Override
     public String toString(){

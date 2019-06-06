@@ -52,7 +52,7 @@ public class Game {
         System.out.println("Current player: "+ activePlayer.getName());
         System.out.println("Deck size: " + activePlayer.getDeckSize());
         System.out.println(topCard.toString());
-        String chosenAttribute = activePlayer.choseCardAttribute(topCard);
+        int chosenAttribute = activePlayer.choseCardAttribute(topCard);
         int activeAttributeValue = activePlayer.getTopCardAttribute(chosenAttribute);
         int opponentAttributeValue = opponentPlayer.getTopCardAttribute(chosenAttribute);
 

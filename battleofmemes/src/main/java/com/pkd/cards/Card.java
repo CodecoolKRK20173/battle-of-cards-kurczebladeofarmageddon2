@@ -31,6 +31,8 @@ public class Card {
         ArrayList<Integer> valueList = new ArrayList<Integer>(this.attributes.values());
         ArrayList<String> attributesArray = new ArrayList<String>();
         int keysNumber = keyList.size();
+        attributesKeyArray.clear();
+        attributesValueArray.clear();
         for (int i = 0; i <keysNumber; i++) {
             attributesArray.add(keyList.get(i) + ": " + valueList.get(i));
             attributesKeyArray.add(keyList.get(i));
@@ -60,10 +62,7 @@ public class Card {
     public void addAttribute(String key, int value){
         this.attributes.put(key, value);
         this.attributesArray.add(key + ": " + value);
-        this.attributesKeyArray.add(key);
-        this.attributesValueArray.add(value);
-        this.attributesKeyArray.sort(Comparator.comparing( String::toString ));
-        Collections.sort(this.attributesValueArray);
+        makeArrayFromAttributesMap();
     }
 
     public void setDescription(String description){

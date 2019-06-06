@@ -62,8 +62,7 @@ public class Player {
     public int getTopCardAttribute(int attribute) {
         Card card = getTopCard ( );
         String keyS = card.getAttributesKeyByNumberInString (attribute);
-        System.out.println (card.getAttributesKeyArray ( ));
-        System.out.println (keyS);
+
         return card.getValueOfAttribute (keyS);
     }
 

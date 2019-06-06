@@ -10,9 +10,9 @@ import java.util.LinkedList;
 
 public class Game {
     private ArrayList<Player> players = new ArrayList<>();
-    private LinkedList<Card> temporaryList= new LinkedList<>();
-    private Deck temporaryDeck = new Deck(temporaryList);
-    private Player temporaryPLayer = new Player(temporaryDeck, "temporary player");
+//    private LinkedList<Card> temporaryList= new LinkedList<>();
+//    private Deck temporaryDeck = new Deck(temporaryList);
+    private Player temporaryPLayer = new Player(new Deck(new LinkedList<>()), "temporary player");
 
     public void startGame() {
         gameInitiacion();
@@ -60,7 +60,9 @@ public class Game {
         if (drawResult){
             addCardsToTemporaryPlayerDeck(activePlayer,opponentPlayer,temporaryPLayer);
             System.out.println("It was DRAW! You will fight to win drawed cards in next round.");
-            System.out.println("Drawed cards = "+temporaryPLayer.getDeckSize()+" cards.");
+            System.out.println("Drawed cards = "+temporaryPLayer.getDeckSize());
+            System.out.println("Active Player cards = "+activePlayer.getDeckSize());
+            System.out.println("Opponent Player cards = "+opponentPlayer.getDeckSize());
             System.out.println("Choose carefully your next comparing attribute :) \n");
             return players.indexOf(activePlayer);
         }
@@ -71,8 +73,8 @@ public class Game {
         int winnerIndex = players.indexOf(winner);
 
         winner.wonCard(looser.getTopCard());
-        if (!temporaryDeck.isEmpty()){
-            for (int j = 0; j<temporaryDeck.getSize(); j++){
+        while (!temporaryPLayer.isDeckEmpty()){
+            for (int j = 0; j<temporaryPLayer.getDeckSize(); j++){
                 winner.wonCard(temporaryPLayer.getTopCard());
                 temporaryPLayer.loseTopCard();
             }

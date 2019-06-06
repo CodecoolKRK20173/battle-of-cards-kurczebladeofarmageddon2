@@ -42,7 +42,7 @@ public class Player {
     }
 
 
-    public String chooseCardAttribute(Card card) {
+    public String choseCardAttribute(Card card) {
         Scanner inp = new Scanner(System.in);
         String input = inp.nextLine();
         return input;

@@ -15,28 +15,52 @@ public class Game {
         gameInitiacion();
         System.out.println(players.get(0).showDeck());
         System.out.println(players.get(1).showDeck());
-        turnActivePlayer(0);
-        turnActivePlayer(1);
+        gameRounds(0);
         System.out.println(players.get(0).showDeck());
         System.out.println(players.get(1).showDeck());
 
     }
 
-    public void turnActivePlayer(int i){
+    public boolean opponentsEliminated(ArrayList<Player> gamers){
+        int activePlayers = 0;
+        for (Player player: gamers
+             ) {if (!player.isDeckEmpty()) activePlayers++;
+        }
+        return activePlayers == 1;
+    }
+
+    public boolean gameContinues(ArrayList<Player> gamers){
+        return !opponentsEliminated(gamers);
+    }
+
+    public void gameRounds(int startingPlayer){
+        int activePlayer = startingPlayer;
+        while (gameContinues(players)){
+            activePlayer = turnActivePlayer(activePlayer);
+        }
+
+
+    }
+
+    public int turnActivePlayer(int i){
         Player activePlayer = players.get(i);
-        Player oponentPlayer = players.get(i == 0 ? 1 : 0);
+        Player opponentPlayer = players.get(i == 0 ? 1 : 0);
         Card topCard = activePlayer.getTopCard();
         System.out.println("Current player: "+ activePlayer.getName());
         System.out.println("Deck size: " + activePlayer.getDeckSize());
         System.out.println(topCard.toString());
-        String choosenAtribute = activePlayer.chooseCardAttribute(topCard);
-        int activeAtributeValue = activePlayer.getTopCardAttribute(choosenAtribute);
-        int opponentAtributeValue = oponentPlayer.getTopCardAttribute(choosenAtribute);
+        String chosenAttribute = activePlayer.choseCardAttribute(topCard);
+        int activeAttributeValue = activePlayer.getTopCardAttribute(chosenAttribute);
+        int opponentAttributeValue = opponentPlayer.getTopCardAttribute(chosenAttribute);
 
-        Player winner = activeAtributeValue > opponentAtributeValue ? activePlayer : oponentPlayer;
-        Player looser = activeAtributeValue > opponentAtributeValue ? oponentPlayer : activePlayer;
+        Player winner = activeAttributeValue > opponentAttributeValue ? activePlayer : opponentPlayer;
+        Player looser = activeAttributeValue > opponentAttributeValue ? opponentPlayer : activePlayer;
+
+        int winnerIndex = players.indexOf(winner);
+
         winner.wonCard(looser.getTopCard());
         looser.loseTopCard();
+        return winnerIndex;
     }
 
 
@@ -54,11 +78,6 @@ public class Game {
         Player player2 = new Player(player2Deck, "Player 2");
         players.add(player1);
         players.add(player2);
-
-//        System.out.println(player1.showDeck());
-//        System.out.println("------------------------------------");
-//        System.out.print(player2.showDeck());
-
 
     }
 

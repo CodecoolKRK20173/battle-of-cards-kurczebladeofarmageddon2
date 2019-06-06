@@ -48,8 +48,8 @@ public class Game {
         Deck player2Deck = new Deck(decks.get(1));
 
 
-        Player player1 = new Player(player1Deck);
-        Player player2 = new Player(player2Deck);
+        Player player1 = new Player(player1Deck, "Player 1");
+        Player player2 = new Player(player2Deck, "Player 2");
         players.add(player1);
         players.add(player2);
 

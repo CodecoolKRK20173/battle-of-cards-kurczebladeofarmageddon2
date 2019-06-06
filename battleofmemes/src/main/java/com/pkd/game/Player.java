@@ -7,9 +7,11 @@ import java.util.Scanner;
 
 public class Player {
     private Deck deck;
+    private final String name;
 
-    public Player(Deck deck){
+    public Player(Deck deck, String name){
         this.deck = deck;
+        this.name = name;
     }
 
     public void loseTopCard(){
@@ -46,4 +48,6 @@ public class Player {
         Card card = getTopCard();
         return card.getValueOfAttribute(attribute);
     }
+
+    public String getName(){return this.name;}
 }

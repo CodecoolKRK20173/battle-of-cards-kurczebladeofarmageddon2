@@ -41,8 +41,13 @@ public class Card {
         return attributesArray;
     }
 
-    public String getAttributesByNumberInString(int i){
+    public String getAttributesKeyByNumberInString(int i){
         return attributesKeyArray.get(i);
+
+    }
+
+    public String getAttributesByNumberInString(int i){
+        return attributesArray.get(i);
 
     }
     

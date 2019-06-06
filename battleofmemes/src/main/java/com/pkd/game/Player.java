@@ -6,6 +6,7 @@ import com.pkd.cards.Deck;
 import java.util.Scanner;
 
 public class Player {
+
     private Deck deck;
     private final String name;
 
@@ -36,6 +37,9 @@ public class Player {
 
     }
 
+    public Deck getDeck() {
+        return deck;
+    }
 
     public int getDeckSize(){
         return this.deck.getSize();

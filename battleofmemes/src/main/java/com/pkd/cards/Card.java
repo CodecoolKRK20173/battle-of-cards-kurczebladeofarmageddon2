@@ -14,8 +14,10 @@ public class Card {
 
     public Card(String name){
         this.name = name;
-        attributes = new TreeMap<>();
-        attributesArray = new ArrayList<String>();
+        this.attributes = new TreeMap<>();
+        this.attributesArray = new ArrayList<String>();
+        this.attributesKeyArray = new ArrayList<String>();
+        this.attributesValueArray = new ArrayList<Integer>();
     }
 
     public SortedMap<String, Integer> getAllCardAttributesValues() {

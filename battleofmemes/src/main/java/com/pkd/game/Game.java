@@ -10,6 +10,9 @@ import java.util.LinkedList;
 
 public class Game {
     private ArrayList<Player> players = new ArrayList<>();
+    private LinkedList<Card> temporaryList= new LinkedList<>();
+    private Deck temporaryDeck = new Deck(temporaryList);
+    private Player temporaryPLayer = new Player(temporaryDeck, "temporary player");
 
     public void startGame() {
         gameInitiacion();
@@ -53,14 +56,36 @@ public class Game {
         int activeAttributeValue = activePlayer.getTopCardAttribute(chosenAttribute);
         int opponentAttributeValue = opponentPlayer.getTopCardAttribute(chosenAttribute);
 
+        boolean drawResult = (activeAttributeValue == opponentAttributeValue);
+        if (drawResult){
+            addCardsToTemporaryPlayerDeck(activePlayer,opponentPlayer,temporaryPLayer);
+            System.out.println("It was DRAW! You will fight to win drawed cards in next round.");
+            System.out.println("Drawed cards = "+temporaryPLayer.getDeckSize()+" cards.");
+            System.out.println("Choose carefully your next comparing attribute :) \n");
+            return players.indexOf(activePlayer);
+        }
+
         Player winner = activeAttributeValue > opponentAttributeValue ? activePlayer : opponentPlayer;
         Player looser = activeAttributeValue > opponentAttributeValue ? opponentPlayer : activePlayer;
 
         int winnerIndex = players.indexOf(winner);
 
         winner.wonCard(looser.getTopCard());
+        if (!temporaryDeck.isEmpty()){
+            for (int j = 0; j<temporaryDeck.getSize(); j++){
+                winner.wonCard(temporaryPLayer.getTopCard());
+                temporaryPLayer.loseTopCard();
+            }
+        }
         looser.loseTopCard();
         return winnerIndex;
+    }
+
+    public void addCardsToTemporaryPlayerDeck (Player activePlayer, Player opponentPlayer, Player temporaryPlayer){
+        temporaryPlayer.wonCard(activePlayer.getTopCard());
+        temporaryPlayer.wonCard(opponentPlayer.getTopCard());
+        activePlayer.loseTopCard();
+        opponentPlayer.loseTopCard();
     }
 
 

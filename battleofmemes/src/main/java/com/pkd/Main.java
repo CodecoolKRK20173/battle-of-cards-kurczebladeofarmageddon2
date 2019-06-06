@@ -1,5 +1,5 @@
 package com.pkd;
-import com.pkd.game.Game;
+import com.pkd.game.*;
 
 public class Main {
     public static void main(String[] args) {

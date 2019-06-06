@@ -1,8 +1,6 @@
 package com.pkd.cards;
 
-import java.util.ArrayList;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Card {
     private final String name;
@@ -64,6 +62,8 @@ public class Card {
         this.attributesArray.add(key + ": " + value);
         this.attributesKeyArray.add(key);
         this.attributesValueArray.add(value);
+        this.attributesKeyArray.sort(Comparator.comparing( String::toString ));
+        Collections.sort(this.attributesValueArray);
     }
 
     public void setDescription(String description){

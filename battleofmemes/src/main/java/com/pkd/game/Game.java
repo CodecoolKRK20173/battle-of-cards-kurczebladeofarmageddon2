@@ -4,13 +4,15 @@ import com.pkd.DAO.ParseXml;
 import com.pkd.cards.Card;
 import com.pkd.cards.Cardlist;
 import com.pkd.cards.Deck;
-import com.pkd.visual.cardsVisual;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
     private ArrayList<Player> players = new ArrayList<>();
+//    private LinkedList<Card> temporaryList= new LinkedList<>();
+//    private Deck temporaryDeck = new Deck(temporaryList);
+    private Player temporaryPLayer = new Player(new Deck(new LinkedList<>()), "temporary player");
 
     public void startGame() {
         gameInitiacion();
@@ -44,7 +46,6 @@ public class Game {
     }
 
     public int turnActivePlayer(int i){
-        cardsVisual show = new cardsVisual();
         Player activePlayer = players.get(i);
         Player opponentPlayer = players.get(i == 0 ? 1 : 0);
         Card topCard = activePlayer.getTopCard();
@@ -52,9 +53,19 @@ public class Game {
         System.out.println("Deck size: " + activePlayer.getDeckSize());
         System.out.println(topCard.toString());
         String chosenAttribute = activePlayer.choseCardAttribute(topCard);
-        show.printAllTopCard(players);
         int activeAttributeValue = activePlayer.getTopCardAttribute(chosenAttribute);
         int opponentAttributeValue = opponentPlayer.getTopCardAttribute(chosenAttribute);
+
+        boolean drawResult = (activeAttributeValue == opponentAttributeValue);
+        if (drawResult){
+            addCardsToTemporaryPlayerDeck(activePlayer,opponentPlayer,temporaryPLayer);
+            System.out.println("It was DRAW! You will fight to win drawed cards in next round.");
+            System.out.println("Drawed cards = "+temporaryPLayer.getDeckSize());
+            System.out.println("Active Player cards = "+activePlayer.getDeckSize());
+            System.out.println("Opponent Player cards = "+opponentPlayer.getDeckSize());
+            System.out.println("Choose carefully your next comparing attribute :) \n");
+            return players.indexOf(activePlayer);
+        }
 
         Player winner = activeAttributeValue > opponentAttributeValue ? activePlayer : opponentPlayer;
         Player looser = activeAttributeValue > opponentAttributeValue ? opponentPlayer : activePlayer;
@@ -62,9 +73,25 @@ public class Game {
         int winnerIndex = players.indexOf(winner);
 
         winner.wonCard(looser.getTopCard());
+        while (!temporaryPLayer.isDeckEmpty()){
+            for (int j = 0; j<temporaryPLayer.getDeckSize(); j++){
+                winner.wonCard(temporaryPLayer.getTopCard());
+                temporaryPLayer.loseTopCard();
+            }
+        }
         looser.loseTopCard();
         return winnerIndex;
     }
+
+    public void addCardsToTemporaryPlayerDeck (Player activePlayer, Player opponentPlayer, Player temporaryPlayer){
+        temporaryPlayer.wonCard(activePlayer.getTopCard());
+        temporaryPlayer.wonCard(opponentPlayer.getTopCard());
+        activePlayer.loseTopCard();
+        opponentPlayer.loseTopCard();
+    }
+
+
+
 
     public void gameInitiacion () {
         Cardlist cardlist = new Cardlist(ParseXml.parseXML());

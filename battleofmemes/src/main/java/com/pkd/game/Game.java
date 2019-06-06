@@ -26,6 +26,8 @@ public class Game {
         Player activePlayer = players.get(i);
         Player oponentPlayer = players.get(i == 0 ? 1 : 0);
         Card topCard = activePlayer.getTopCard();
+        System.out.println("Current player: "+ activePlayer.getName());
+        System.out.println("Deck size: " + activePlayer.getDeckSize());
         System.out.println(topCard.toString());
         String choosenAtribute = activePlayer.chooseCardAttribute(topCard);
         int activeAtributeValue = activePlayer.getTopCardAttribute(choosenAtribute);

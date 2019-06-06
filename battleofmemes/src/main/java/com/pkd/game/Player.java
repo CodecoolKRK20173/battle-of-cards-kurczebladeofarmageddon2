@@ -30,11 +30,16 @@ public class Player {
     public boolean isDeckEmpty(){
         return deck.isEmpty();
     }
+
     public String showDeck(){
-        return deck.toString();
+        return "Player: " + this.name + "\n"+ deck.toString();
 
     }
 
+
+    public int getDeckSize(){
+        return this.deck.getSize();
+    }
 
 
     public String chooseCardAttribute(Card card) {

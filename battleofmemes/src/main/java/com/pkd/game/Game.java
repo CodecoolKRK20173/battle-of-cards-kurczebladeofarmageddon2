@@ -4,6 +4,7 @@ import com.pkd.DAO.ParseXml;
 import com.pkd.cards.Card;
 import com.pkd.cards.Cardlist;
 import com.pkd.cards.Deck;
+import com.pkd.visual.cardsVisual;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -43,6 +44,7 @@ public class Game {
     }
 
     public int turnActivePlayer(int i){
+        cardsVisual show = new cardsVisual();
         Player activePlayer = players.get(i);
         Player opponentPlayer = players.get(i == 0 ? 1 : 0);
         Card topCard = activePlayer.getTopCard();
@@ -50,6 +52,7 @@ public class Game {
         System.out.println("Deck size: " + activePlayer.getDeckSize());
         System.out.println(topCard.toString());
         String chosenAttribute = activePlayer.choseCardAttribute(topCard);
+        show.printAllTopCard(players);
         int activeAttributeValue = activePlayer.getTopCardAttribute(chosenAttribute);
         int opponentAttributeValue = opponentPlayer.getTopCardAttribute(chosenAttribute);
 
@@ -62,9 +65,6 @@ public class Game {
         looser.loseTopCard();
         return winnerIndex;
     }
-
-
-
 
     public void gameInitiacion () {
         Cardlist cardlist = new Cardlist(ParseXml.parseXML());

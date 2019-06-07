@@ -1,6 +1,8 @@
 package com.pkd.cards;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class Card {
     private final String name;
@@ -10,67 +12,83 @@ public class Card {
     private ArrayList<String> attributesKeyArray;
     private ArrayList<Integer> attributesValueArray;
 
-    public Card(String name){
+    public Card(String name) {
         this.name = name;
-        this.attributes = new TreeMap<>();
-        this.attributesArray = new ArrayList<String>();
-        this.attributesKeyArray = new ArrayList<String>();
-        this.attributesValueArray = new ArrayList<Integer>();
+        this.attributes = new TreeMap<> ( );
+        this.attributesArray = new ArrayList<String> ( );
+        this.attributesKeyArray = new ArrayList<String> ( );
+        this.attributesValueArray = new ArrayList<Integer> ( );
     }
 
     public SortedMap<String, Integer> getAllCardAttributesValues() {
         return this.attributes;
     }
 
-    public int getValueOfAttribute(String attribute){
-        return this.attributes.get(attribute);
+    public int getValueOfAttribute(String attribute) {
+        return this.attributes.get (attribute);
     }
 
-    private ArrayList<String> makeArrayFromAttributesMap(){
-        ArrayList<String> keyList = new ArrayList<String>(this.attributes.keySet());
-        ArrayList<Integer> valueList = new ArrayList<Integer>(this.attributes.values());
-        ArrayList<String> attributesArray = new ArrayList<String>();
-        int keysNumber = keyList.size();
-        attributesKeyArray.clear();
-        attributesValueArray.clear();
-        for (int i = 0; i <keysNumber; i++) {
-            attributesArray.add(keyList.get(i) + ": " + valueList.get(i));
-            attributesKeyArray.add(keyList.get(i));
-            attributesValueArray.add(valueList.get(i));
+    public String getAttributesKeyByNumberInString(int i) {
+        return attributesKeyArray.get (i);
+
+    }
+
+    public String getAttributesByNumberInString(int i) {
+        return attributesArray.get (i);
+
+    }
+
+    public void addAttribute(String key, int value) {
+        this.attributes.put (key, value);
+        this.attributesArray.add (key + ": " + value);
+        makeArrayFromAttributesMap ( );
+    }
+
+    private ArrayList<String> makeArrayFromAttributesMap() {
+        ArrayList<String> keyList = new ArrayList<String> (this.attributes.keySet ( ));
+        ArrayList<Integer> valueList = new ArrayList<Integer> (this.attributes.values ( ));
+        ArrayList<String> attributesArray = new ArrayList<String> ( );
+        int keysNumber = keyList.size ( );
+        attributesKeyArray.clear ( );
+        attributesValueArray.clear ( );
+        for (int i = 0; i < keysNumber; i++) {
+            attributesArray.add (keyList.get (i) + ": " + valueList.get (i));
+            attributesKeyArray.add (keyList.get (i));
+            attributesValueArray.add (valueList.get (i));
         }
         return attributesArray;
     }
 
-    public String getAttributesKeyByNumberInString(int i){
-        return attributesKeyArray.get(i);
-
+    public int getNumberOfAttributes() {
+        return attributes.size ( );
     }
 
-    public String getAttributesByNumberInString(int i){
-        return attributesArray.get(i);
-
+    public int hashCode() {
+        String result = "";
+        for (String key : this.attributes.keySet ( )) {
+            result += attributes.get (key) + "00";
+        }
+        int hash = Integer.parseInt (result, 10);
+        return hash;
     }
-    
-    public String getName(){
+
+    @Override
+    public String toString() {
+        String output = "";
+        output += "Meme: " + this.getName ( ) + "\n";
+        output += "Story: " + this.getDescription ( ) + "\n";
+        int numb = 1;
+        for (String key : this.attributes.keySet ( )
+        ) {
+            output += numb + ":  " + key + ": " + this.attributes.get (key) + "\n";
+            numb++;
+        }
+//        output += String.valueOf(this.hashCode());
+        return output;
+    }
+
+    public String getName() {
         return this.name;
-    }
-    
-    public String getDescription(){
-        return this.description;
-    }
-
-    public void addAttribute(String key, int value){
-        this.attributes.put(key, value);
-        this.attributesArray.add(key + ": " + value);
-        makeArrayFromAttributesMap();
-    }
-
-    public void setDescription(String description){
-        this.description = description;
-    }
-
-    public int getNumberOfAttributes(){
-        return attributes.size();
     }
 
 
@@ -82,26 +100,11 @@ public class Card {
         return attributesValueArray;
     }
 
-    @Override
-    public String toString(){
-        String output = "";
-        output += "Meme: " + this.getName() + "\n";
-        output += "Story: " + this.getDescription() + "\n";
-        int numb = 1;
-        for (String key : this.attributes.keySet()
-             ) { output +=numb + ":  "+ key + ": " + this.attributes.get(key) + "\n";
-             numb++;
-        }
-//        output += String.valueOf(this.hashCode());
-        return output;
+    public String getDescription() {
+        return this.description;
     }
 
-
-    public int hashCode() {
-        String result = "";
-        for (String key : this.attributes.keySet()) {
-            result += attributes.get(key) + "00";
-        }
-        int hash = Integer.parseInt(result, 10);
-        return hash;
-}}
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}

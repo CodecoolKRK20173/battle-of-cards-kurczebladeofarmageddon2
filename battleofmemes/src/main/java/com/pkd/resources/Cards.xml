@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Cards>
-    <Card name="nazwa_mema1">
+    <Card name="joke_1">
         <Description value=" Marketing companies should use chromosomes in advertisements because sex cells."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
@@ -10,8 +10,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema2">
-        <Description value="opis_mema2"/>
+    <Card name="joke_2">
+        <Description value="It’s hard to explain puns to kleptomaniacs because they always take things literally."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">3</Attribute>
@@ -20,8 +20,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema3">
-        <Description value="opis_mema3"/>
+    <Card name="joke_3">
+        <Description value="I used to think the brain was the most important organ. Then I thought, look what’s telling me that."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">44</Attribute>
@@ -30,8 +30,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema4">
-        <Description value="opis_mema4"/>
+    <Card name="joke_4">
+        <Description value="The midget fortune teller who kills his customers is a small medium at large."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">89</Attribute>
@@ -40,8 +40,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema5">
-        <Description value="opis_mem5"/>
+    <Card name="joke_5">
+        <Description value="A farmer in the field with his cows counted 196 of them, but when he rounded them up he had 200."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">77</Attribute>
@@ -50,8 +50,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema6">
-        <Description value="opis_mema6"/>
+    <Card name="joke_6">
+        <Description value="What is Bruce Lee’s favorite drink? Wataaaaah!"/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">65</Attribute>
@@ -60,8 +60,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema7">
-        <Description value="opis_mema7"/>
+    <Card name="joke_7">
+        <Description value="The dyslexic devil worshipper sold his soul to Santa."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">98</Attribute>
@@ -70,8 +70,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema8">
-        <Description value="opis_mema8"/>
+    <Card name="joke_8">
+        <Description value="You kill vegetarian vampires with a steak to the heart."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">66</Attribute>
@@ -80,8 +80,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema9">
-        <Description value="opis_mema9"/>
+    <Card name="joke_9">
+        <Description value="If you want to catch a squirrel just climb a tree and act like a nut."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">33</Attribute>
@@ -90,8 +90,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema10">
-        <Description value="opis_mema10"/>
+    <Card name="joke_10">
+        <Description value="So this guy with a premature ejaculation problem comes out of nowhere."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">38</Attribute>
@@ -100,8 +100,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema11">
-        <Description value="opis_mema11"/>
+    <Card name="joke_11">
+        <Description value="A magician was walking down the street and turned into a grocery store."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">88</Attribute>
@@ -110,8 +110,8 @@
         </Attributes>
     </Card>
     ...
-    <Card name="nazwa_mema12">
-        <Description value="opis_mema12"/>
+    <Card name="joke_12">
+        <Description value="A blind man walks into a bar. And a table. And a chair."/>
         <Attributes>
             <Attribute id="fun">1</Attribute>
             <Attribute id="fresh">7</Attribute>

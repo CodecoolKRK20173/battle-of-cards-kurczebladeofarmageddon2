@@ -1,4 +1,8 @@
-battleofmemes/target/classes/com/pkd/Card.class
+battleofmemes/target/
 battleofmemes/target/classes/com/pkd/Cardlist.class
 battleofmemes/target/classes/com/pkd/DAO/XmlParser.class
-*.class
+*.classtarget/
+production.txt
+target/
+.idea/
+.idea/workspace.xml
